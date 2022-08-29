@@ -1,0 +1,111 @@
+﻿@model BusinessObjects.Order
+
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row" id="orderDetails">
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Freight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Freight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Member)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Member.Id)
+        </dd class>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        @*<input type="hidden" asp-for="OrderId" />*@
+        <input type="button" id="btnDelete" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+
+    <div class="text-danger" id="errorText">
+
+        </div>
+</div>
+
+<hr />
+<h5>Order Details</h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetails.ToList()[0].Product.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetails.ToList()[0].UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetails.ToList()[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetails.ToList()[0].Discount)
+            </th>
+            @*<th>
+                    Sum
+                </th>*@
+        </tr>
+    </thead>
+    <tbody id="orderProductsDetails">
+        @*@if (Model != null && Model.OrderDetails != null && Model.OrderDetails.Any())
+        {
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Order.OrderId)
+                        </td>
+                </tr>
+            }
+        }*@
+    </tbody>
+</table>
+
+<p class="text-success" id="orderTotal"></p>
+
+ @section Scripts {
+                <script src="~/js/Orders/delete.js"></script>
+            }
